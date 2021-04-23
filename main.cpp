@@ -64,7 +64,42 @@ int main(int argc, char** argv) {
 			}
 			case 3: {
 				//raiz cuadrada
-
+				double numero;
+				double result_mult;
+				int t;
+				cout << "Ingrese el numero para conseguir el resultado de la raiz cuadrada: "<<endl;
+				cin >> numero;
+				while(numero < 0) {
+					cout << "Numeros negativos no son validos!"<<endl;
+					cout << "Ingrese el dato n: "<<endl;
+					cin >> numero;
+				}
+				cout << "Ingrese el dato t (iteraciones): "<<endl;
+				cin >> t;
+				while (t < 11) {
+					cout << "Ingrese un numero valido! debe ser mayor que 10! "<<endl;
+					cout << "Ingrese el dato t (iteraciones): "<<endl;
+					cin >> t;
+				}
+				double minimo = 0;
+				double mitad = 0;
+				double maximo = numero;
+				for(int i=0; i < t; i++){
+					//Conseguimos la mitad
+					mitad = (maximo+minimo)/2;
+					//verificamos si el resultado es mayor que el maximo
+					result_mult = mitad*mitad;
+					if(result_mult>numero){
+						//aqui verificamos que si el resultado de la multiplicacion de la mitad es mayor al maximo
+						//declaramos el maximo con la mitad
+						maximo=mitad;
+					}else if(result_mult < numero){
+						//aqui verificamos que si el resultado de la multiplicacion de la mitad es menor al maximo
+						//declaramos el minimo con la mitad
+						minimo = mitad;
+					}
+				}
+				cout << "El resultado de la raiz cuadrada es: "<<mitad<<endl;
 				break;
 			}
 			case 4: {
